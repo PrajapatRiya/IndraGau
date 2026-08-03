@@ -1,35 +1,68 @@
 import React from 'react';
-import { Award, Sparkles, Phone, ArrowRight, CheckCircle2, ShoppingBag, ShieldCheck, Factory, Truck } from 'lucide-react';
+import { Award, Sparkles, Phone, ArrowRight, CheckCircle2, ShoppingBag, Factory, Truck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import singleJar from '../assets/ghee-jar-single.jpg';
-import tin5l from '../assets/ghee-tin-5l.jpg';
-import tin15l from '../assets/ghee-tin-15l.jpg';
 import logoImg from '../assets/indra-gau-logo.jpg';
 
-export default function Hero({ onOpenOrderModal }) {
+export default function Hero({ onOpenOrderModal, onNavigate }) {
+  // Animation Variants for smooth staggered entrance
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
-    <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden bg-gradient-to-b from-[#FFFDF5] via-[#FAF3E0] to-[#FDFCF7]">
+    <section className="relative pt-6 pb-16 md:pt-10 md:pb-24 overflow-hidden bg-gradient-to-b from-[#FFFDF5] via-[#FAF3E0] to-[#FDFCF7]">
       
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-300/20 rounded-full blur-3xl pointer-events-none animate-glow" />
-      <div className="absolute top-20 right-10 w-96 h-96 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Background Ambient Glows with subtle motion */}
+      <motion.div
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.2, 0.3, 0.2],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-300/30 rounded-full blur-3xl pointer-events-none"
+      />
+      <motion.div
+        animate={{
+          scale: [1, 1.15, 1],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
+        className="absolute top-20 right-10 w-96 h-96 bg-amber-400/20 rounded-full blur-2xl pointer-events-none"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Animated Content */}
+          {/* Left Staggered Animated Content */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
             
             {/* Top Badges Group */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
               <motion.div
-                whileHover={{ scale: 1.03 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-gold-card text-amber-950 text-xs sm:text-sm font-bold border border-amber-400/50 shadow-sm cursor-default"
+                whileHover={{ scale: 1.04 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-gold-card text-amber-950 text-xs sm:text-sm font-bold border border-amber-400/60 shadow-md cursor-default bg-amber-100/90"
               >
                 <Sparkles className="w-4 h-4 text-amber-600 animate-spin" />
                 <span>100% Pure A2 Natural Cow Ghee</span>
@@ -37,24 +70,30 @@ export default function Hero({ onOpenOrderModal }) {
                 <span>Derda Gam, Surat</span>
               </motion.div>
 
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-900 text-amber-100 text-xs font-bold shadow-xs">
+              <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-950 to-amber-900 text-amber-200 text-xs font-extrabold shadow-sm border border-amber-700/50">
                 <Factory className="w-3.5 h-3.5 text-amber-400" />
-                Manufacturing • Trading • Wholesale
+                Manufacturer • Trader • Wholesaler
               </span>
-            </div>
+            </motion.div>
 
-            {/* Main Headline as Requested */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-amber-950 leading-tight">
-              Indulge in Pure Vedic <span className="gold-gradient-text">A2 Natural Cow Ghee</span>
-            </h1>
+            {/* Main Headline: "Indra Gau - 100% Pure A2 Natural Cow Ghee" as requested */}
+            <motion.h1 
+              variants={itemVariants} 
+              className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-amber-950 leading-[1.15]"
+            >
+              Indra Gau <span className="gold-gradient-text drop-shadow-sm">100% Pure A2 Natural Cow Ghee</span>
+            </motion.h1>
 
             {/* Subheadline Highlight Box */}
-            <div className="p-4 bg-amber-100/80 rounded-2xl border-l-4 border-amber-600 text-amber-950 font-serif text-sm sm:text-base leading-relaxed shadow-xs">
+            <motion.div 
+              variants={itemVariants} 
+              className="p-4 bg-gradient-to-r from-amber-100/90 via-amber-50/90 to-amber-100/90 rounded-2xl border-l-4 border-amber-500 text-amber-950 font-serif text-sm sm:text-base leading-relaxed shadow-sm"
+            >
               "Handcrafted in authentic small batches at Derda Gam (near Surat). Available for retail, bulk trading, and wholesale supply in 500ml, 1 Litre glass jars, and 5L / 15L sealed tin packs."
-            </div>
+            </motion.div>
 
             {/* Concise Bullet Highlights */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+            <motion.div variants={itemVariants} className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
               {[
                 'Manufacturing & Trading',
                 'Wholesale Supply',
@@ -65,17 +104,17 @@ export default function Hero({ onOpenOrderModal }) {
               ].map((item, i) => (
                 <motion.div
                   key={i}
-                  whileHover={{ scale: 1.03 }}
-                  className="flex items-center gap-2 text-xs font-semibold text-stone-800 bg-white/90 p-2.5 rounded-xl border border-amber-200 shadow-xs cursor-default"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="flex items-center gap-2 text-xs font-semibold text-stone-800 bg-white/90 p-2.5 rounded-xl border border-amber-200 shadow-xs cursor-default transition-all"
                 >
                   <CheckCircle2 className="w-4 h-4 text-amber-600 shrink-0" />
                   <span>{item}</span>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -86,34 +125,34 @@ export default function Hero({ onOpenOrderModal }) {
                 <span>Order Fresh Batch (WhatsApp)</span>
               </motion.button>
 
-              <motion.a
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#products"
-                className="w-full sm:w-auto justify-center flex items-center gap-2 px-7 py-4 rounded-2xl bg-stone-900 text-amber-100 font-semibold text-base hover:bg-stone-800 transition-all shadow-md"
+                onClick={() => onNavigate ? onNavigate('products') : null}
+                className="w-full sm:w-auto justify-center flex items-center gap-2 px-7 py-4 rounded-2xl bg-stone-900 text-amber-100 font-semibold text-base hover:bg-stone-800 transition-all shadow-md cursor-pointer"
               >
                 <span>View Products & Prices</span>
                 <ArrowRight className="w-4 h-4" />
-              </motion.a>
-            </div>
+              </motion.button>
+            </motion.div>
 
             {/* Helpline Bar */}
-            <div className="pt-2 flex items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm text-stone-600">
+            <motion.div variants={itemVariants} className="pt-2 flex items-center justify-center lg:justify-start gap-4 text-xs sm:text-sm text-stone-600">
               <span className="flex items-center gap-1.5 font-semibold text-amber-950">
                 <Phone className="w-4 h-4 text-amber-600" />
                 Helpline: <a href="tel:9898668642" className="underline font-bold text-amber-950">+91 98986 68642</a>
               </span>
               <span>•</span>
               <span className="font-medium text-stone-700">Derda Gam, Surat</span>
-            </div>
+            </motion.div>
 
           </motion.div>
 
-          {/* Right Visual Container - FULL GHEE JAR & TIN PACK SHOWCASE */}
+          {/* Right Visual Container with Floating Floating Animation */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 relative"
           >
             <div className="relative mx-auto max-w-md lg:max-w-none">
@@ -121,16 +160,21 @@ export default function Hero({ onOpenOrderModal }) {
               {/* Gold Glow Ring Aura */}
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-amber-400 via-amber-200 to-amber-500 opacity-70 blur-xl animate-pulse" />
 
-              <div className="relative rounded-3xl overflow-hidden glass-panel p-4 border-2 border-amber-400 shadow-2xl">
+              <motion.div 
+                whileHover={{ y: -5 }}
+                className="relative rounded-3xl overflow-hidden glass-panel p-4 border-2 border-amber-400 shadow-2xl bg-white/60"
+              >
                 
-                {/* Full Unclipped Ghee Container */}
+                {/* Full Unclipped Ghee Container with gentle floating motion */}
                 <div className="relative h-[450px] sm:h-[500px] rounded-2xl overflow-hidden bg-gradient-to-b from-amber-100/60 via-amber-50/40 to-amber-200/50 p-4 flex flex-col items-center justify-center group border border-amber-300/60">
                   
-                  {/* Actual Full Ghee Image */}
-                  <img
+                  {/* Actual Full Ghee Image with gentle floating animation */}
+                  <motion.img
                     src={singleJar}
-                    alt="Indra Gau Full Golden A2 Ghee Jar & Tin Container"
-                    className="w-full h-full object-contain filter drop-shadow-2xl transform group-hover:scale-105 transition-transform duration-700 z-10"
+                    alt="Indra Gau Full Golden A2 Ghee Jar Container"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    className="w-full h-full object-contain filter drop-shadow-2xl z-10"
                   />
 
                   {/* Logo Badge Watermark Top Left */}
@@ -174,7 +218,7 @@ export default function Hero({ onOpenOrderModal }) {
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
             </div>
           </motion.div>
 

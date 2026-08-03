@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ShoppingBag, Menu, X, Mail, Globe, MapPin, Building2 } from 'lucide-react';
+import { Phone, ShoppingBag, Menu, X, Globe, MapPin, Building2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logoImg from '../assets/indra-gau-logo.jpg';
 
-export default function Navbar({ onOpenOrderModal }) {
+export default function Navbar({ onOpenOrderModal, activeTab, onNavigate }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -16,62 +16,30 @@ export default function Navbar({ onOpenOrderModal }) {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Products & Pricing', href: '#products' },
-    { name: 'Bilona Process', href: '#bilona' },
-    { name: 'Benefits', href: '#benefits' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Contact Us', href: '#contact' },
+    { name: 'Home', id: 'home' },
+    { name: 'About Us', id: 'about' },
+    { name: 'Products & Pricing', id: 'products' },
+    { name: 'Bilona Process', id: 'bilona' },
+    { name: 'Benefits', id: 'benefits' },
+    { name: 'Gallery', id: 'gallery' },
+    { name: 'Contact Us', id: 'contact' },
   ];
+
+  const handleNavClick = (id) => {
+    onNavigate(id);
+    setMobileMenuOpen(false);
+  };
 
   return (
     <>
-      {/* Top Contact & Business Roles Bar */}
-      <div className="bg-amber-950 text-amber-100 text-xs py-2 px-4 border-b border-amber-800/80 z-50 relative">
-        <div className="max-w-7xl mx-auto flex items-center justify-between flex-wrap gap-2">
-          
-          <div className="flex items-center gap-4 flex-wrap text-[11px] sm:text-xs">
-            <span className="flex items-center gap-1 font-semibold text-amber-300 bg-amber-900/60 px-2.5 py-0.5 rounded-full border border-amber-500/30">
-              <Building2 className="w-3.5 h-3.5 text-amber-400" />
-              Manufacturer • Trader • Wholesaler
-            </span>
-            <span className="hidden sm:inline text-amber-700">|</span>
-            <span className="flex items-center gap-1 font-medium text-amber-200">
-              <Globe className="w-3.5 h-3.5 text-amber-400" />
-              <a href="https://www.indragau.com" target="_blank" rel="noreferrer" className="hover:text-amber-400 transition-colors">
-                www.indragau.com
-              </a>
-            </span>
-            <span className="hidden md:inline text-amber-700">|</span>
-            <span className="hidden md:flex items-center gap-1 text-stone-300">
-              <MapPin className="w-3.5 h-3.5 text-amber-400" />
-              Derda Gam, Surat, Gujarat
-            </span>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <a
-              href="tel:9898668642"
-              className="flex items-center gap-1 font-bold text-amber-300 hover:text-amber-100 transition-colors text-xs"
-            >
-              <Phone className="w-3 h-3 text-amber-400" /> +91 98986 68642
-            </a>
-          </div>
-
-        </div>
-      </div>
-
       {/* Main Glassmorphic Navbar */}
       <header
-        className={`fixed left-0 right-0 z-40 transition-all duration-300 px-4 sm:px-8 max-w-7xl mx-auto ${
-          scrolled ? 'top-2' : 'top-9'
-        }`}
+        className="fixed left-0 right-0 top-3 z-50 px-4 sm:px-8 max-w-7xl mx-auto"
       >
-        <div className="glass-panel rounded-2xl px-4 py-3 sm:px-6 flex items-center justify-between shadow-xl border border-amber-300/50">
+        <div className="glass-panel rounded-2xl px-4 py-3 sm:px-6 flex items-center justify-between shadow-xl border border-amber-300/50 bg-white/80 backdrop-blur-md">
           
           {/* Logo & Brand */}
-          <a href="#" className="flex items-center gap-3 group">
+          <button onClick={() => handleNavClick('home')} className="flex items-center gap-3 group text-left cursor-pointer">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -94,19 +62,28 @@ export default function Navbar({ onOpenOrderModal }) {
                 100% Pure A2 Natural Cow Ghee
               </p>
             </div>
-          </a>
+          </button>
 
           {/* Desktop Menu Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-xs sm:text-sm font-semibold text-amber-950 hover:text-amber-600 transition-colors hover:scale-105 transform tracking-wide"
-              >
-                {link.name}
-              </a>
-            ))}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+            {navLinks.map((link) => {
+              const isActive = activeTab === link.id;
+              return (
+                <motion.button
+                  key={link.id}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => handleNavClick(link.id)}
+                  className={`text-[11px] xl:text-[12px] font-bold px-2.5 py-1.5 rounded-lg transition-all tracking-wider cursor-pointer ${
+                    isActive
+                      ? 'bg-gradient-to-r from-amber-400 to-amber-500 text-amber-950 shadow-xs border border-amber-600/40 font-extrabold'
+                      : 'text-amber-950 hover:bg-amber-100/90 hover:text-amber-900 font-semibold'
+                  }`}
+                >
+                  {link.name}
+                </motion.button>
+              );
+            })}
           </nav>
 
           {/* Desktop Actions */}
@@ -135,7 +112,7 @@ export default function Navbar({ onOpenOrderModal }) {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden text-amber-950 p-2 rounded-xl bg-amber-100 border border-amber-300"
+            className="lg:hidden text-amber-950 p-2 rounded-xl bg-amber-100 border border-amber-300 cursor-pointer"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -149,22 +126,28 @@ export default function Navbar({ onOpenOrderModal }) {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="lg:hidden mt-2 glass-panel rounded-2xl p-5 shadow-2xl border border-amber-300"
+              className="lg:hidden mt-2 glass-panel rounded-2xl p-5 shadow-2xl border border-amber-300 bg-white/95"
             >
               <div className="flex flex-col gap-2">
                 <div className="bg-amber-100 p-2 rounded-xl text-center text-xs font-bold text-amber-950 border border-amber-300 mb-1">
                   Manufacturer • Trader • Wholesaler
                 </div>
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-sm font-semibold text-amber-950 hover:text-amber-600 py-2 px-3 rounded-lg hover:bg-amber-100/60 transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = activeTab === link.id;
+                  return (
+                    <button
+                      key={link.id}
+                      onClick={() => handleNavClick(link.id)}
+                      className={`text-sm font-bold text-left py-2.5 px-3 rounded-xl transition-colors cursor-pointer ${
+                        isActive
+                          ? 'bg-amber-500 text-amber-950'
+                          : 'text-amber-950 hover:bg-amber-100/60'
+                      }`}
+                    >
+                      {link.name}
+                    </button>
+                  );
+                })}
                 <div className="pt-3 border-t border-amber-200/80 flex flex-col gap-2 text-xs">
                   <a
                     href="tel:9898668642"

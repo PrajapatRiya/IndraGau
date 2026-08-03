@@ -5,6 +5,8 @@ import bilonaChart from '../assets/bilona-process-chart.jpg';
 import singleJar from '../assets/ghee-jar-single.jpg';
 import multipleJars from '../assets/ghee-jars-counter.jpg';
 import promoInfo from '../assets/promo-infographic.jpg';
+import packagingBoxes from '../assets/ghee-boxes-packaging.jpg';
+import jarsStackReal from '../assets/ghee-jars-stack-real.jpg';
 
 export default function FarmGallery() {
   const [filter, setFilter] = useState('all');
@@ -24,6 +26,20 @@ export default function FarmGallery() {
       category: 'product',
       src: multipleJars,
       caption: 'Freshly prepared batches ready for dispatch to homes in Surat and across India.',
+    },
+    {
+      id: 6,
+      title: 'Safe Thermocol Box Packaging for Pan-India Courier Delivery',
+      category: 'packaging',
+      src: packagingBoxes,
+      caption: 'Each glass jar of Indra Gau A2 Ghee is safely packed in dedicated thermocol boxes to ensure 100% break-free & leak-proof courier transport across India.',
+    },
+    {
+      id: 7,
+      title: 'Authentic Fresh Batch - Indra Gau Pure A2 Natural Cow Ghee',
+      category: 'product',
+      src: jarsStackReal,
+      caption: 'Real photo showing the rich golden yellow color, purity, and glass jar packaging of Indra Gau A2 Natural Cow Ghee.',
     },
     {
       id: 3,
@@ -53,7 +69,7 @@ export default function FarmGallery() {
     : galleryItems.filter(item => item.category === filter);
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-b from-[#FDFCF7] via-[#FAF3E0] to-[#FDFCF7] relative">
+    <section id="gallery" className="py-16 bg-gradient-to-b from-[#FDFCF7] via-[#FAF3E0] to-[#FDFCF7] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
@@ -64,11 +80,11 @@ export default function FarmGallery() {
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-950">
-            Our Farm & <span className="gold-gradient-text">Product Gallery</span>
+            Our Real Product & <span className="gold-gradient-text">Packaging Gallery</span>
           </h2>
 
           <p className="text-stone-700 text-base sm:text-lg">
-            Real photography of our authentic A2 Ghee jars, Bilona process graphics, and farm heritage at Derda Gam, Surat.
+            Real photography of Indra Gau A2 Ghee glass jars, thermocol packaging for safe courier transport, and authentic Vedic Bilona process graphics.
           </p>
         </div>
 
@@ -77,6 +93,7 @@ export default function FarmGallery() {
           {[
             { id: 'all', label: 'All Photos' },
             { id: 'product', label: 'Ghee Jars' },
+            { id: 'packaging', label: 'Thermocol Packaging' },
             { id: 'bilona', label: 'Bilona Process' },
             { id: 'info', label: 'Health Posters' },
           ].map((tab) => (
@@ -99,52 +116,71 @@ export default function FarmGallery() {
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              onClick={() => setActiveImageModal(item)}
-              className="glass-panel rounded-3xl overflow-hidden border border-amber-300/60 shadow-lg hover:shadow-2xl transition-all duration-300 group cursor-pointer"
+              className="glass-panel rounded-3xl p-4 border border-amber-200/80 shadow-lg group hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
             >
-              <div className="relative h-64 sm:h-72 overflow-hidden bg-amber-100/50">
-                <img
-                  src={item.src}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-amber-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/90 text-amber-950 flex items-center justify-center shadow-lg">
-                    <Eye className="w-6 h-6" />
+              <div>
+                <div className="relative h-64 rounded-2xl overflow-hidden bg-amber-100/50 border border-amber-300/40">
+                  <img
+                    src={item.src}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                    <button
+                      onClick={() => setActiveImageModal(item)}
+                      className="w-full bg-white/90 text-amber-950 text-xs font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-md cursor-pointer hover:bg-amber-100 transition-colors"
+                    >
+                      <Eye className="w-4 h-4 text-amber-700" /> View Full Photo
+                    </button>
                   </div>
+                </div>
+
+                <div className="mt-4 space-y-1.5">
+                  <h3 className="font-serif font-bold text-amber-950 text-base leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-stone-600 leading-relaxed">
+                    {item.caption}
+                  </p>
                 </div>
               </div>
 
-              <div className="p-4 space-y-1">
-                <h3 className="font-serif font-bold text-amber-950 text-base">
-                  {item.title}
-                </h3>
-                <p className="text-xs text-stone-600 line-clamp-2">
-                  {item.caption}
-                </p>
+              <div className="mt-4 pt-3 border-t border-amber-200/60 flex items-center justify-between text-[11px] text-amber-900 font-semibold">
+                <span className="flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-amber-600" /> Indra Gau Official
+                </span>
+                <span className="bg-amber-100 text-amber-900 px-2 py-0.5 rounded-md uppercase font-bold text-[10px]">
+                  {item.category}
+                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Modal Lightbox for full image viewing */}
+        {/* Modal Lightbox */}
         {activeImageModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md">
-            <div className="relative max-w-3xl w-full glass-panel rounded-3xl p-4 sm:p-6 border-2 border-amber-400 overflow-hidden shadow-2xl">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md animate-fadeIn">
+            <div className="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400 p-4">
               <button
                 onClick={() => setActiveImageModal(null)}
-                className="absolute top-4 right-4 bg-white/90 text-amber-950 p-2 rounded-full shadow-md font-bold text-sm"
+                className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-amber-950 text-amber-100 flex items-center justify-center shadow-lg hover:bg-amber-900 transition-colors cursor-pointer"
               >
                 ✕
               </button>
-              <img
-                src={activeImageModal.src}
-                alt={activeImageModal.title}
-                className="w-full h-auto max-h-[75vh] object-contain rounded-2xl"
-              />
-              <div className="mt-4 text-center">
-                <div className="font-serif text-lg font-bold text-amber-950">{activeImageModal.title}</div>
-                <p className="text-xs sm:text-sm text-stone-700 mt-1">{activeImageModal.caption}</p>
+              <div className="max-h-[75vh] overflow-hidden rounded-2xl bg-amber-50/50 flex items-center justify-center border border-amber-200">
+                <img
+                  src={activeImageModal.src}
+                  alt={activeImageModal.title}
+                  className="max-h-[70vh] w-auto object-contain rounded-xl"
+                />
+              </div>
+              <div className="p-4 space-y-2 text-center">
+                <h3 className="font-serif font-bold text-amber-950 text-lg sm:text-xl">
+                  {activeImageModal.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-stone-600 max-w-xl mx-auto">
+                  {activeImageModal.caption}
+                </p>
               </div>
             </div>
           </div>

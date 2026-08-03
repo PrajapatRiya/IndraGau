@@ -56,6 +56,49 @@ body {
   box-shadow: 0 12px 32px rgba(212, 136, 6, 0.08);
 }
 
+/* Luxury Decorative Golden Enhancements */
+.golden-gradient-border {
+  border: 2px solid transparent;
+  background-image: linear-gradient(rgba(26, 16, 5, 0.95), rgba(26, 16, 5, 0.95)), 
+                    linear-gradient(135deg, #FFD700 0%, #D48806 50%, #FFF5C0 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+.gold-glow-box {
+  box-shadow: 0 0 25px rgba(212, 136, 6, 0.35), inset 0 0 15px rgba(254, 232, 179, 0.15);
+}
+
+.gold-text-glow {
+  text-shadow: 0 0 12px rgba(245, 199, 95, 0.6), 0 0 25px rgba(212, 136, 6, 0.4);
+}
+
+/* Ornate Corner Accents */
+.ornate-corner-tl {
+  top: 8px;
+  left: 8px;
+  border-top: 2px solid #F5C75F;
+  border-left: 2px solid #F5C75F;
+}
+.ornate-corner-tr {
+  top: 8px;
+  right: 8px;
+  border-top: 2px solid #F5C75F;
+  border-right: 2px solid #F5C75F;
+}
+.ornate-corner-bl {
+  bottom: 8px;
+  left: 8px;
+  border-bottom: 2px solid #F5C75F;
+  border-left: 2px solid #F5C75F;
+}
+.ornate-corner-br {
+  bottom: 8px;
+  right: 8px;
+  border-bottom: 2px solid #F5C75F;
+  border-right: 2px solid #F5C75F;
+}
+
 /* Golden Shimmer & Text Gradients */
 .gold-gradient-text {
   background: linear-gradient(135deg, #B36B00 0%, #EAA21D 50%, #985C02 100%);
@@ -87,6 +130,15 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
 .animate-float {
   animation: floatSlow 6s ease-in-out infinite;
 }
@@ -115,3 +167,4 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #985C02;
 }
+
