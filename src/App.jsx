@@ -65,7 +65,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500 text-amber-950 text-xs font-extrabold uppercase">
                     <Sparkles className="w-3.5 h-3.5" /> Our Roots & Vedic Heritage
                   </span>
-                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white">About Indra Gau A2 Ghee</h1>
+                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-amber-400">About Indra Gau A2 Ghee</h1>
                   <p className="text-amber-200 text-xs sm:text-sm max-w-2xl mx-auto">
                     Handcrafted at Derda Gam near Surat. Manufacturer, Trader, and Wholesaler of 100% Pure A2 Natural Cow Ghee.
                   </p>
@@ -124,7 +124,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500 text-amber-950 text-xs font-extrabold uppercase">
                     <Sparkles className="w-3.5 h-3.5" /> Retail & Wholesale Catalog
                   </span>
-                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white">Products & Pricing</h1>
+                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-amber-400">Products & Pricing</h1>
                   <p className="text-amber-200 text-xs sm:text-sm max-w-2xl mx-auto">
                     Available in 500ml (₹799), 1 Litre glass jars (₹1,499), and 5L (₹6,000) / 15L (₹18,000) sealed tin containers for direct home delivery or bulk commercial trade.
                   </p>
@@ -146,7 +146,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500 text-amber-950 text-xs font-extrabold uppercase">
                     <Sparkles className="w-3.5 h-3.5" /> 100% Traditional Vedic Method
                   </span>
-                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white">The 5-Step Bilona Process</h1>
+                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-amber-400">The 5-Step Bilona Process</h1>
                   <p className="text-amber-200 text-xs sm:text-sm max-w-2xl mx-auto">
                     From fresh Gir cow A2 milk to wooden bilona churned makkhan slow-cooked on low flame for authentic golden granularity.
                   </p>
@@ -167,7 +167,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500 text-amber-950 text-xs font-extrabold uppercase">
                     <Sparkles className="w-3.5 h-3.5" /> Wellness & Health
                   </span>
-                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white">Health Benefits of A2 Ghee</h1>
+                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-amber-400">Health Benefits of A2 Ghee</h1>
                   <p className="text-amber-200 text-xs sm:text-sm max-w-2xl mx-auto">
                     Rich in Omega-3, Omega-6, Vitamin A, D, E, K, and Butyric Acid for immune boost, joint strength, and digestive health.
                   </p>
@@ -189,7 +189,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500 text-amber-950 text-xs font-extrabold uppercase">
                     <Sparkles className="w-3.5 h-3.5" /> Real Product & Packaging Photos
                   </span>
-                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white">Farm & Product Gallery</h1>
+                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-amber-400">Farm & Product Gallery</h1>
                   <p className="text-amber-200 text-xs sm:text-sm max-w-2xl mx-auto">
                     Take a glimpse inside Indra Gau A2 Ghee jars, thermocol packaging boxes for safe delivery, and our Gir cows at Derda Gam, Surat.
                   </p>
@@ -211,7 +211,7 @@ export default function App() {
                   <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-amber-500 text-amber-950 text-xs font-extrabold uppercase">
                     <Sparkles className="w-3.5 h-3.5" /> Get in Touch
                   </span>
-                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-white">Contact & Inquiry</h1>
+                  <h1 className="font-serif text-3xl sm:text-5xl font-bold text-amber-400">Contact & Inquiry</h1>
                   <p className="text-amber-200 text-xs sm:text-sm max-w-2xl mx-auto">
                     We welcome retail orders, wholesale inquiries, and associate partnerships. Contact us directly!
                   </p>

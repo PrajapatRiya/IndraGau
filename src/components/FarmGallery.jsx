@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Camera, Eye, Sparkles } from 'lucide-react';
 import logoImg from '../assets/indra-gau-logo.jpg';
 import bilonaChart from '../assets/bilona-process-chart.jpg';
@@ -8,6 +9,9 @@ import newJar1000ml from '../assets/newImgs/IMG-20261003-WA0007.jpg';
 import newFamilyPoster from '../assets/newImgs/IMG-20261003-WA0008.jpg';
 import newB2BPoster from '../assets/newImgs/IMG-20261003-WA0009.jpg';
 import newVideoSrc from '../assets/newImgs/VID-20261003-WA0010.mp4';
+import aiImg1 from '../assets/ai-img/fist.jpg';
+import aiImg2 from '../assets/ai-img/fust-2.jpg';
+import aiImg3 from '../assets/ai-img/fist-3.jpg';
 
 export default function FarmGallery() {
   const [filter, setFilter] = useState('all');
@@ -64,6 +68,27 @@ export default function FarmGallery() {
       src: newVideoSrc,
       caption: 'Watch our official Indra Gau A2 Bilona Cow Ghee product video. 100% Pure, Hand Made, Traditional Bilona Method.',
     },
+    {
+      id: 12,
+      title: 'Indra Gau A2 Ghee – Pure Goodness',
+      category: 'ai',
+      src: aiImg1,
+      caption: 'Experience the rich purity of Indra Gau A2 Bilona Cow Ghee – crafted with tradition and love.',
+    },
+    {
+      id: 13,
+      title: 'Indra Gau A2 Ghee – Natural Strength',
+      category: 'ai',
+      src: aiImg2,
+      caption: 'Nature s finest A2 Ghee from Indra Gau – 100% Pure, Traditional Bilona Method',
+    },
+    {
+      id: 14,
+      title: 'Indra Gau A2 Ghee – Heritage & Purity',
+      category: 'ai',
+      src: aiImg3,
+      caption: 'Indra Gau A2 Bilona Cow Ghee – Rooted in Vedic tradition, crafted for modern families.',
+    },
   ];
 
   const filteredItems = filter === 'all' 
@@ -101,6 +126,7 @@ export default function FarmGallery() {
             { id: 'promo', label: 'Promo Posters' },
             { id: 'b2b', label: 'B2B / Bulk' },
             { id: 'video', label: '▶ Videos' },
+            { id: 'ai', label: '✨ AI Creatives' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -166,17 +192,19 @@ export default function FarmGallery() {
                 <span className="flex items-center gap-1">
                   <Sparkles className="w-3 h-3 text-amber-600" /> Indra Gau Official
                 </span>
-                <span className="bg-amber-100 text-amber-900 px-2 py-0.5 rounded-md uppercase font-bold text-[10px]">
-                  {item.category}
-                </span>
+                {item.category !== 'ai' && (
+                  <span className="bg-amber-100 text-amber-900 px-2 py-0.5 rounded-md uppercase font-bold text-[10px]">
+                    {item.category}
+                  </span>
+                )}
               </div>
             </div>
           ))}
         </div>
 
         {/* Modal Lightbox */}
-        {activeImageModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md animate-fadeIn" onClick={() => setActiveImageModal(null)}>
+        {activeImageModal && createPortal(
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md animate-fadeIn" onClick={() => setActiveImageModal(null)}>
             <div className="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400 p-4" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => setActiveImageModal(null)}
@@ -210,7 +238,8 @@ export default function FarmGallery() {
                 </p>
               </div>
             </div>
-          </div>
+          </div>,
+          document.body
         )}
 
       </div>
