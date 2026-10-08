@@ -64,8 +64,8 @@ export default function BilonaProcess() {
             <span>Traditional Vedic Method</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-100">
-            The 5-Step <span className="text-amber-400">Vedic Bilona Process</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-400">
+            The 5-Step <span className="text-amber-300">Vedic Bilona Process</span>
           </h2>
 
           <p className="text-stone-300 text-base sm:text-lg">

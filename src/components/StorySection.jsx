@@ -54,8 +54,8 @@ export default function StorySection() {
               <span>About Us • Our Roots & Heritage</span>
             </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-100 leading-tight">
-              Crafting Pure A2 Ghee with <span className="text-amber-400">Devotion & Vedic Wisdom</span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-400 leading-tight">
+              Crafting Pure A2 Ghee with <span className="text-amber-300">Devotion & Vedic Wisdom</span>
             </h2>
 
             <p className="text-stone-300 text-base sm:text-lg leading-relaxed font-sans">

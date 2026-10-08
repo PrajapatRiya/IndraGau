@@ -2,45 +2,18 @@ import React, { useState } from 'react';
 import { Camera, Eye, Sparkles } from 'lucide-react';
 import logoImg from '../assets/indra-gau-logo.jpg';
 import bilonaChart from '../assets/bilona-process-chart.jpg';
-import singleJar from '../assets/ghee-jar-single.jpg';
-import multipleJars from '../assets/ghee-jars-counter.jpg';
 import promoInfo from '../assets/promo-infographic.jpg';
 import packagingBoxes from '../assets/ghee-boxes-packaging.jpg';
-import jarsStackReal from '../assets/ghee-jars-stack-real.jpg';
+import newJar1000ml from '../assets/newImgs/IMG-20261003-WA0007.jpg';
+import newFamilyPoster from '../assets/newImgs/IMG-20261003-WA0008.jpg';
+import newB2BPoster from '../assets/newImgs/IMG-20261003-WA0009.jpg';
+import newVideoSrc from '../assets/newImgs/VID-20261003-WA0010.mp4';
 
 export default function FarmGallery() {
   const [filter, setFilter] = useState('all');
   const [activeImageModal, setActiveImageModal] = useState(null);
 
   const galleryItems = [
-    {
-      id: 1,
-      title: 'Indra Gau Pure A2 Gir Cow Ghee Glass Jar',
-      category: 'product',
-      src: singleJar,
-      caption: 'Pure golden granular A2 Gir Cow Ghee packed in non-reactive food grade glass jar.',
-    },
-    {
-      id: 2,
-      title: 'Stacked Fresh Batches of Indra Gau Ghee',
-      category: 'product',
-      src: multipleJars,
-      caption: 'Freshly prepared batches ready for dispatch to homes in Surat and across India.',
-    },
-    {
-      id: 6,
-      title: 'Safe Thermocol Box Packaging for Pan-India Courier Delivery',
-      category: 'packaging',
-      src: packagingBoxes,
-      caption: 'Each glass jar of Indra Gau A2 Ghee is safely packed in dedicated thermocol boxes to ensure 100% break-free & leak-proof courier transport across India.',
-    },
-    {
-      id: 7,
-      title: 'Authentic Fresh Batch - Indra Gau Pure A2 Natural Cow Ghee',
-      category: 'product',
-      src: jarsStackReal,
-      caption: 'Real photo showing the rich golden yellow color, purity, and glass jar packaging of Indra Gau A2 Natural Cow Ghee.',
-    },
     {
       id: 3,
       title: 'Traditional Vedic Bilona Method Chart',
@@ -61,6 +34,35 @@ export default function FarmGallery() {
       category: 'brand',
       src: logoImg,
       caption: 'Indra Gau Cow Ghee - 100% Original Pure Ghee Guarantee.',
+    },
+    {
+      id: 8,
+      title: 'Indra Gau A2 Bilona Cow Ghee – 1000ml Glass Jar',
+      category: 'product',
+      src: newJar1000ml,
+      caption: '100% Pure A2 Bilona Cow Ghee in a 1000ml premium glass jar. No Preservatives | No Additives | Hand Made | Traditional Bilona Mortar-Driven Method.',
+    },
+    {
+      id: 9,
+      title: 'The Purest Choice for Your Family – Indra Gau',
+      category: 'promo',
+      src: newFamilyPoster,
+      caption: 'Rich in taste. Trusted in every home. Indra Gau A2 Bilona Cow Ghee — 100% Pure & Natural, cherished by families across India.',
+    },
+    {
+      id: 10,
+      title: 'A2 Kankrej Bilona Ghee – B2B Bulk Enquiry Open',
+      category: 'b2b',
+      src: newB2BPoster,
+      caption: '1000ml A2 Kankrej Bilona Ghee for Retailers, Distributors, Hotels, Restaurants & Sweet Shops. Pan India Supply | MOQ 24 Jars | GST Invoice | White Label Available.',
+    },
+    {
+      id: 11,
+      title: 'Indra Gau A2 Bilona Cow Ghee – Product Video',
+      category: 'video',
+      type: 'video',
+      src: newVideoSrc,
+      caption: 'Watch our official Indra Gau A2 Bilona Cow Ghee product video. 100% Pure, Hand Made, Traditional Bilona Method.',
     },
   ];
 
@@ -96,6 +98,9 @@ export default function FarmGallery() {
             { id: 'packaging', label: 'Thermocol Packaging' },
             { id: 'bilona', label: 'Bilona Process' },
             { id: 'info', label: 'Health Posters' },
+            { id: 'promo', label: 'Promo Posters' },
+            { id: 'b2b', label: 'B2B / Bulk' },
+            { id: 'video', label: '▶ Videos' },
           ].map((tab) => (
             <button
               key={tab.id}
@@ -120,17 +125,29 @@ export default function FarmGallery() {
             >
               <div>
                 <div className="relative h-64 rounded-2xl overflow-hidden bg-amber-100/50 border border-amber-300/40">
-                  <img
-                    src={item.src}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {item.type === 'video' ? (
+                    <video
+                      src={item.src}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      muted
+                      loop
+                      playsInline
+                      onMouseEnter={e => e.target.play()}
+                      onMouseLeave={e => { e.target.pause(); e.target.currentTime = 0; }}
+                    />
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-amber-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                     <button
                       onClick={() => setActiveImageModal(item)}
                       className="w-full bg-white/90 text-amber-950 text-xs font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 shadow-md cursor-pointer hover:bg-amber-100 transition-colors"
                     >
-                      <Eye className="w-4 h-4 text-amber-700" /> View Full Photo
+                      <Eye className="w-4 h-4 text-amber-700" /> {item.type === 'video' ? 'Play Video' : 'View Full Photo'}
                     </button>
                   </div>
                 </div>
@@ -159,8 +176,8 @@ export default function FarmGallery() {
 
         {/* Modal Lightbox */}
         {activeImageModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md animate-fadeIn">
-            <div className="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/85 backdrop-blur-md animate-fadeIn" onClick={() => setActiveImageModal(null)}>
+            <div className="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border-2 border-amber-400 p-4" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => setActiveImageModal(null)}
                 className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-amber-950 text-amber-100 flex items-center justify-center shadow-lg hover:bg-amber-900 transition-colors cursor-pointer"
@@ -168,11 +185,21 @@ export default function FarmGallery() {
                 ✕
               </button>
               <div className="max-h-[75vh] overflow-hidden rounded-2xl bg-amber-50/50 flex items-center justify-center border border-amber-200">
-                <img
-                  src={activeImageModal.src}
-                  alt={activeImageModal.title}
-                  className="max-h-[70vh] w-auto object-contain rounded-xl"
-                />
+                {activeImageModal.type === 'video' ? (
+                  <video
+                    src={activeImageModal.src}
+                    className="max-h-[70vh] w-auto rounded-xl"
+                    controls
+                    autoPlay
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={activeImageModal.src}
+                    alt={activeImageModal.title}
+                    className="max-h-[70vh] w-auto object-contain rounded-xl"
+                  />
+                )}
               </div>
               <div className="p-4 space-y-2 text-center">
                 <h3 className="font-serif font-bold text-amber-950 text-lg sm:text-xl">

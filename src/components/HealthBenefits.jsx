@@ -71,8 +71,8 @@ export default function HealthBenefits() {
             <span>Ayurvedic Wellness</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-100">
-            Why Choose <span className="text-amber-400">Indra Gau A2 Ghee?</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-400">
+            Why Choose <span className="text-amber-300">Indra Gau A2 Ghee?</span>
           </h2>
 
           <p className="text-stone-300 text-base sm:text-lg">

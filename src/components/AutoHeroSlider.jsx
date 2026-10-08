@@ -7,7 +7,9 @@ import posterBilona from '../assets/banner-bilona-infographic.jpg';
 import posterLifestyle from '../assets/banner-lifestyle-poster.jpg';
 import packagingBoxes from '../assets/ghee-boxes-packaging.jpg';
 import bilonaProcessChart from '../assets/bilona-process-chart.jpg';
-import singleJar from '../assets/ghee-jar-single.jpg';
+import newJar1000ml from '../assets/newImgs/IMG-20261003-WA0007.jpg';
+import newFamilyPoster from '../assets/newImgs/IMG-20261003-WA0008.jpg';
+import newB2BPoster from '../assets/newImgs/IMG-20261003-WA0009.jpg';
 
 export default function AutoHeroSlider({ onOpenOrderModal, onNavigate }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -66,14 +68,34 @@ export default function AutoHeroSlider({ onOpenOrderModal, onNavigate }) {
       productCode: '1L',
     },
     {
-      id: 'ghee-jar',
-      image: singleJar,
-      badge: 'હોલસેલ અને રીટેલ',
-      title: 'Retail & Wholesale Price Catalog',
-      subtitle: '૫૦૦ml, ૧L ગ્લાસ બારણી અને ૫L, ૧૫L ટીન પેકમાં હોલસેલ સપ્લાય ઉપલબ્ધ.',
-      priceTag: '૫૦૦ml @ ₹૭૯૯ | ૧L @ ₹૧,૪૯૯',
-      ctaText: 'ભાવ પત્રક જુઓ',
-      navigateId: 'products',
+      id: 'new-jar-1000ml',
+      image: newJar1000ml,
+      badge: '૧૦૦% શુદ્ધ • No Additives • Hand Made',
+      title: 'A2 Bilona Cow Ghee – 1000ml Glass Jar',
+      subtitle: 'ઈન્દ્ર ગૌ A2 Bilona Cow Ghee | ૧૦૦% Pure | No Preservatives | Hand Made | No Additives | Traditional Bilona Mortar-Driven Method.',
+      priceTag: '1000ml @ ₹૧,૪૯૯ | Order Now',
+      ctaText: 'ઓર્ડર કરો (WhatsApp)',
+      productCode: '1L',
+    },
+    {
+      id: 'new-family-poster',
+      image: newFamilyPoster,
+      badge: 'The Purest Choice for Your Family',
+      title: 'Rich in Taste. Trusted in Every Home.',
+      subtitle: 'Indra Gau A2 Bilona Cow Ghee — ૧૦૦% Pure & Natural. ઘેર ઘેર પ્રિય, ૧૦૦% ઓર્ગેનિક, સ્વાદ અને સ્વાસ્થ્ય.',
+      priceTag: 'Family Choice | ૧૦૦% Organic',
+      ctaText: 'ઓર્ડર કરો (WhatsApp)',
+      productCode: '1L',
+    },
+    {
+      id: 'new-b2b-poster',
+      image: newB2BPoster,
+      badge: 'B2B Bulk Enquiry Open',
+      title: 'A2 Kankrej Bilona Ghee – 1000ml Bulk',
+      subtitle: 'Retailers • Distributors • Hotels • Restaurants • Sweet Shops. Pan India Supply | MOQ 24 Jars | GST Invoice | White Label Available.',
+      priceTag: 'Become Our Distributor Today',
+      ctaText: 'Bulk Enquiry – WhatsApp',
+      productCode: '1L',
     },
   ];
 
@@ -174,7 +196,7 @@ export default function AutoHeroSlider({ onOpenOrderModal, onNavigate }) {
                   {currentSlide.badge}
                 </span>
 
-                <h3 className="font-serif text-xl sm:text-3xl font-extrabold text-white leading-tight">
+                <h3 className="font-serif text-xl sm:text-3xl font-extrabold text-amber-400 leading-tight">
                   {currentSlide.title}
                 </h3>
 

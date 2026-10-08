@@ -30,7 +30,7 @@ export default function HomePage({ onOpenOrderModal, onNavigate }) {
               <div className="flex justify-center text-amber-400 mb-2">
                 <Factory className="w-7 h-7" />
               </div>
-              <div className="font-royal text-xl sm:text-2xl font-bold text-white">Direct Maker</div>
+              <div className="font-royal text-xl sm:text-2xl font-bold text-amber-400">Direct Maker</div>
               <p className="text-xs text-amber-300 font-medium">Manufacturer • Trader • Wholesaler</p>
             </div>
 
@@ -38,7 +38,7 @@ export default function HomePage({ onOpenOrderModal, onNavigate }) {
               <div className="flex justify-center text-amber-400 mb-2">
                 <Award className="w-7 h-7" />
               </div>
-              <div className="font-royal text-xl sm:text-2xl font-bold text-white">100% Pure A2</div>
+              <div className="font-royal text-xl sm:text-2xl font-bold text-amber-400">100% Pure A2</div>
               <p className="text-xs text-amber-300 font-medium">Gir Cow Milk & Lab Tested</p>
             </div>
 
@@ -46,7 +46,7 @@ export default function HomePage({ onOpenOrderModal, onNavigate }) {
               <div className="flex justify-center text-amber-400 mb-2">
                 <MapPin className="w-7 h-7" />
               </div>
-              <div className="font-royal text-xl sm:text-2xl font-bold text-white">Derda Gam, Surat</div>
+              <div className="font-royal text-xl sm:text-2xl font-bold text-amber-400">Derda Gam, Surat</div>
               <p className="text-xs text-amber-300 font-medium">Fresh Farm Batch Production</p>
             </div>
 
@@ -54,7 +54,7 @@ export default function HomePage({ onOpenOrderModal, onNavigate }) {
               <div className="flex justify-center text-amber-400 mb-2">
                 <Truck className="w-7 h-7" />
               </div>
-              <div className="font-royal text-xl sm:text-2xl font-bold text-white">All India Delivery</div>
+              <div className="font-royal text-xl sm:text-2xl font-bold text-amber-400">All India Delivery</div>
               <p className="text-xs text-amber-300 font-medium">Retail Jars & 5L/15L Tins</p>
             </div>
 
@@ -259,7 +259,7 @@ export default function HomePage({ onOpenOrderModal, onNavigate }) {
             
             <div className="lg:col-span-8 space-y-3">
               <span className="text-amber-400 text-xs font-bold tracking-wider uppercase">Vedic 5-Step Bilona Process</span>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-amber-400">
                 Curd Churned, Never Machine Processed
               </h3>
               <p className="text-xs sm:text-sm text-amber-200/90 max-w-2xl leading-relaxed">

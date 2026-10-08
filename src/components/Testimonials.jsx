@@ -44,8 +44,8 @@ export default function Testimonials() {
             <span>Customer Reviews</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-100">
-            Loved by Thousands of <span className="text-amber-400">Families</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-400">
+            Loved by Thousands of <span className="text-amber-300">Families</span>
           </h2>
 
           <p className="text-stone-300 text-base sm:text-lg">

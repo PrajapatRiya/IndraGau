@@ -40,8 +40,8 @@ export default function BlogSection() {
             <span>Ayurvedic Wisdom</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-100">
-            Articles & <span className="text-amber-400">Ghee Knowledge</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-400">
+            Articles & <span className="text-amber-300">Ghee Knowledge</span>
           </h2>
 
           <p className="text-stone-300 text-base sm:text-lg">

@@ -28,8 +28,8 @@ export default function ContactSection() {
             <span>Direct Contact</span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-100">
-            Get in Touch with <span className="text-amber-400">Indra Gau</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-amber-400">
+            Get in Touch with <span className="text-amber-300">Indra Gau</span>
           </h2>
 
           <p className="text-stone-300 text-base sm:text-lg">
