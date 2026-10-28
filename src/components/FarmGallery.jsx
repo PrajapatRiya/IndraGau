@@ -71,21 +71,21 @@ export default function FarmGallery() {
     {
       id: 12,
       title: 'Indra Gau A2 Ghee – Pure Goodness',
-      category: 'ai',
+      category: 'promo',
       src: aiImg1,
       caption: 'Experience the rich purity of Indra Gau A2 Bilona Cow Ghee – crafted with tradition and love.',
     },
     {
       id: 13,
       title: 'Indra Gau A2 Ghee – Natural Strength',
-      category: 'ai',
+      category: 'promo',
       src: aiImg2,
       caption: 'Nature s finest A2 Ghee from Indra Gau – 100% Pure, Traditional Bilona Method',
     },
     {
       id: 14,
       title: 'Indra Gau A2 Ghee – Heritage & Purity',
-      category: 'ai',
+      category: 'promo',
       src: aiImg3,
       caption: 'Indra Gau A2 Bilona Cow Ghee – Rooted in Vedic tradition, crafted for modern families.',
     },
@@ -126,7 +126,6 @@ export default function FarmGallery() {
             { id: 'promo', label: 'Promo Posters' },
             { id: 'b2b', label: 'B2B / Bulk' },
             { id: 'video', label: '▶ Videos' },
-            { id: 'ai', label: '✨ AI Creatives' },
           ].map((tab) => (
             <button
               key={tab.id}

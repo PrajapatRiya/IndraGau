@@ -1,8 +1,8 @@
 import React from 'react';
 import { ShoppingBag, Star, Check, Phone, Factory, PackageCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
-import singleJar from '../assets/ghee-jar-single.jpg';
-import multipleJars from '../assets/ghee-jars-counter.jpg';
+import singleJar from '../assets/ghee-jar-1l.jpg';
+import jarsStack from '../assets/ghee-jars-stack.jpg';
 import tin5l from '../assets/ghee-tin-5l.jpg';
 import tin15l from '../assets/ghee-tin-15l.jpg';
 
@@ -25,7 +25,7 @@ export default function ProductShowcase({ onOpenOrderModal }) {
       subtext: '1 Litre (1000ml) Pure A2 Natural Cow Ghee',
       price: 1499,
       mrp: 1799,
-      image: multipleJars,
+      image: jarsStack,
       badge: '★ Best Seller • Customer Favorite',
       isPopular: true,
       desc: 'Our flagship 1 Litre (1000ml) pure glass jar. Maximum household value, rich granular texture, and divine aroma.',
@@ -86,9 +86,9 @@ export default function ProductShowcase({ onOpenOrderModal }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className={`rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between relative group ${
+              className={`rounded-3xl p-6 transition-all duration-300 flex flex-col justify-between relative group h-full ${
                 item.isPopular
-                  ? 'glass-gold-card border-2 border-amber-500 shadow-2xl scale-102 lg:-translate-y-2'
+                  ? 'glass-gold-card border-2 border-amber-500 shadow-xl'
                   : 'glass-panel border border-amber-200/80 shadow-lg hover:border-amber-400'
               }`}
             >
